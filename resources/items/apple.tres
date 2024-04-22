@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=5 format=3 uid="uid://bjn7kdy6ahvgi"]
+
+[ext_resource type="Script" path="res://scripts/collectible_objects/item_effects/health_effect.gd" id="1_cumin"]
+[ext_resource type="Texture2D" uid="uid://b6o11k1h4aweo" path="res://assets/sprites/collectibles/Apple.png" id="1_dj1mg"]
+[ext_resource type="Script" path="res://scripts/inventory_item.gd" id="2_c2r1h"]
+
+[sub_resource type="Resource" id="Resource_jkafs"]
+script = ExtResource("1_cumin")
+change_hp_by = 1
+change_max_hp_by = 0
+
+[resource]
+script = ExtResource("2_c2r1h")
+icon = ExtResource("1_dj1mg")
+name = "Apple"
+description = "Restores 1 HP"
+can_use = true
+multiple_uses = false
+can_drop = true
+effect = SubResource("Resource_jkafs")

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dh3k1c7lr7wke"]
+
+[ext_resource type="Texture2D" uid="uid://cric5tcj4v5n4" path="res://assets/sprites/collectibles/Potion of alaram.png" id="1_f5yy1"]
+[ext_resource type="PackedScene" uid="uid://bvuq81n2amr7r" path="res://scenes/collectible_objects/collectible_area.tscn" id="2_a6p18"]
+[ext_resource type="Resource" uid="uid://didtyyc8427f5" path="res://resources/items/potion_of_alarm.tres" id="3_qawff"]
+
+[node name="PotionOfAlarm" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_f5yy1")
+
+[node name="CollectibleArea" parent="." instance=ExtResource("2_a6p18")]
+type = 5
+inventory_item_type = ExtResource("3_qawff")

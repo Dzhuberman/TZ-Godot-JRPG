@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://obvkry1jikm4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cd7b"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lu7xa"]
+bg_color = Color(0.576471, 0.576471, 0.576471, 1)
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(160, 0)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_2cd7b")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_lu7xa")
+text = "Button"

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdarvp8isk8pc"]
+
+[ext_resource type="Texture2D" uid="uid://c06ntlb8xaq5x" path="res://assets/sprites/objects/tree.png" id="1_l5e8x"]
+[ext_resource type="PackedScene" uid="uid://bbpibfgpasivf" path="res://scenes/interactable_objects/interactable_area.tscn" id="2_w6l1x"]
+[ext_resource type="Texture2D" uid="uid://dufpl4mvqqbg0" path="res://assets/sprites/hud/MapDanger_Color-Sheet.png" id="3_u30u7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yeo4f"]
+radius = 24.1868
+
+[node name="Tree" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("1_l5e8x")
+offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_yeo4f")
+
+[node name="InteractableArea" parent="." instance=ExtResource("2_w6l1x")]
+interaction_image = ExtResource("3_u30u7")

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://ne2motl7gfpk"]
+
+[ext_resource type="PackedScene" uid="uid://bvuq81n2amr7r" path="res://scenes/collectible_objects/collectible_area.tscn" id="2_8fs4p"]
+[ext_resource type="Texture2D" uid="uid://chmc6rxc71ueu" path="res://assets/sprites/collectibles/Chili.png" id="2_60l34"]
+[ext_resource type="Resource" uid="uid://pslmwfm25dot" path="res://resources/items/chili_pepper.tres" id="3_jcoku"]
+
+[node name="ChiliPepper" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_60l34")
+
+[node name="CollectibleArea" parent="." instance=ExtResource("2_8fs4p")]
+type = 3
+inventory_item_type = ExtResource("3_jcoku")

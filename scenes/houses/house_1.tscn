@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://dfshpuo5774mi"]
+
+[ext_resource type="Texture2D" uid="uid://ddt54adsvcew" path="res://assets/sprites/Peasant's_House-NoAnimation/Peasant's_House-NoAnimation.png" id="1_0cq1h"]
+[ext_resource type="Script" path="res://scripts/houses/house_base.gd" id="1_khjnd"]
+[ext_resource type="PackedScene" uid="uid://b1s5ohtwptcn1" path="res://scenes/houses/templates/house_interior_template.tscn" id="2_es2jp"]
+[ext_resource type="Texture2D" uid="uid://bbx8iyhqxhi0o" path="res://assets/sprites/Peasant's_House-NoAnimation/Opened_Peasant's_House-NoAnimation.png" id="4_dbpbh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78xsb"]
+size = Vector2(66, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l5l6v"]
+size = Vector2(192, 106)
+
+[node name="House1" type="StaticBody2D" node_paths=PackedStringArray("exit_point") groups=["house"]]
+script = ExtResource("1_khjnd")
+interior_scene = ExtResource("2_es2jp")
+exit_point = NodePath("ExitPoint")
+closed_house = ExtResource("1_0cq1h")
+opened_house = ExtResource("4_dbpbh")
+
+[node name="EntranceArea" type="Area2D" parent="."]
+process_mode = 1
+collision_mask = 2
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EntranceArea"]
+position = Vector2(-24, 61.5)
+shape = SubResource("RectangleShape2D_78xsb")
+
+[node name="ExitPoint" type="Node2D" parent="."]
+position = Vector2(-24, 96)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("1_0cq1h")
+offset = Vector2(0, -20)
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_l5l6v")
+
+[connection signal="body_entered" from="EntranceArea" to="." method="_on_entrance_area_body_entered"]

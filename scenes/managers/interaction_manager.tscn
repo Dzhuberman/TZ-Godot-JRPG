@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4akbj8ba74d3"]
+
+[ext_resource type="Script" path="res://scripts/managers/interaction_manager.gd" id="1_edj2i"]
+
+[node name="InteractionManager" type="Node2D"]
+script = ExtResource("1_edj2i")

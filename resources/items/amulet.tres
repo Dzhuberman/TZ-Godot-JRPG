@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=5 format=3 uid="uid://bkbdk8tl1y3mq"]
+
+[ext_resource type="Script" path="res://scripts/collectible_objects/item_effects/health_effect.gd" id="1_t8jay"]
+[ext_resource type="Texture2D" uid="uid://bca4kmkapneh4" path="res://assets/sprites/collectibles/Amulet.png" id="2_yuw6p"]
+[ext_resource type="Script" path="res://scripts/inventory_item.gd" id="3_2cjkf"]
+
+[sub_resource type="Resource" id="Resource_3qg2g"]
+resource_local_to_scene = true
+script = ExtResource("1_t8jay")
+change_hp_by = -9
+change_max_hp_by = 1
+
+[resource]
+script = ExtResource("3_2cjkf")
+icon = ExtResource("2_yuw6p")
+name = "Amulet"
+description = "Increases max HP by 1 but decreases HP by 9"
+can_use = true
+multiple_uses = true
+can_drop = true
+effect = SubResource("Resource_3qg2g")

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="HealthEffect" load_steps=2 format=3 uid="uid://w5w83d4j6g18"]
+
+[ext_resource type="Script" path="res://scripts/collectible_objects/item_effects/health_effect.gd" id="1_m5ths"]
+
+[resource]
+script = ExtResource("1_m5ths")
+change_hp_by = 0
+change_max_hp_by = 0

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://tcx18rytvbya"]
+
+[ext_resource type="Texture2D" uid="uid://bca4kmkapneh4" path="res://assets/sprites/collectibles/Amulet.png" id="2_qvw4y"]
+[ext_resource type="PackedScene" uid="uid://bvuq81n2amr7r" path="res://scenes/collectible_objects/collectible_area.tscn" id="2_vg4dl"]
+[ext_resource type="Resource" uid="uid://bkbdk8tl1y3mq" path="res://resources/items/amulet.tres" id="3_koy4v"]
+
+[node name="Amulet" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_qvw4y")
+
+[node name="CollectibleArea" parent="." instance=ExtResource("2_vg4dl")]
+type = 6
+inventory_item_type = ExtResource("3_koy4v")

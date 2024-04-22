@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://b00o6v0vilu1"]
+
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_n2iff"]
+[ext_resource type="Texture2D" uid="uid://cn5dis2nq3ud8" path="res://assets/sprites/characters/player.png" id="2_j1ix2"]
+[ext_resource type="PackedScene" uid="uid://damu14qdoaisv" path="res://scenes/player/player_inventory.tscn" id="3_18emj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_io332"]
+size = Vector2(21, 8)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+z_as_relative = false
+collision_layer = 2
+collision_mask = 7
+motion_mode = 1
+script = ExtResource("1_n2iff")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1, -17)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_j1ix2")
+offset = Vector2(0, -8)
+hframes = 6
+vframes = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_io332")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -8)
+zoom = Vector2(2, 2)
+
+[node name="PlayerInventory" parent="." instance=ExtResource("3_18emj")]
+
+[node name="LookDirection" type="Node2D" parent="."]
+position = Vector2(0, -8)
+rotation = 1.5708
+
+[node name="RayCast2D" type="RayCast2D" parent="LookDirection"]
+target_position = Vector2(75, 0)

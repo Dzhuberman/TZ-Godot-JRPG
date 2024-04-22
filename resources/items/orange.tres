@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=5 format=3 uid="uid://toama33uh1bt"]
+
+[ext_resource type="Script" path="res://scripts/collectible_objects/item_effects/health_effect.gd" id="1_5l3h4"]
+[ext_resource type="Texture2D" uid="uid://bbk51l40uefll" path="res://assets/sprites/collectibles/Orange.png" id="1_l2jjr"]
+[ext_resource type="Script" path="res://scripts/inventory_item.gd" id="2_cwe0v"]
+
+[sub_resource type="Resource" id="Resource_elyax"]
+script = ExtResource("1_5l3h4")
+change_hp_by = 1
+change_max_hp_by = 1
+
+[resource]
+script = ExtResource("2_cwe0v")
+icon = ExtResource("1_l2jjr")
+name = "Orange"
+description = "Increases max HP by 1"
+can_use = true
+multiple_uses = false
+can_drop = true
+effect = SubResource("Resource_elyax")

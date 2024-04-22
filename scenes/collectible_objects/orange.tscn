@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbdfcji1t4w64"]
+
+[ext_resource type="Texture2D" uid="uid://bbk51l40uefll" path="res://assets/sprites/collectibles/Orange.png" id="1_phxm8"]
+[ext_resource type="PackedScene" uid="uid://bvuq81n2amr7r" path="res://scenes/collectible_objects/collectible_area.tscn" id="2_85dld"]
+[ext_resource type="Resource" uid="uid://toama33uh1bt" path="res://resources/items/orange.tres" id="3_afoo6"]
+
+[node name="Orange" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_phxm8")
+
+[node name="CollectibleArea" parent="." instance=ExtResource("2_85dld")]
+type = 2
+inventory_item_type = ExtResource("3_afoo6")

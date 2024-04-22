@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=5 format=3 uid="uid://dbnev34eayeqr"]
+
+[ext_resource type="Script" path="res://scripts/collectible_objects/item_effects/health_effect.gd" id="1_6ywgk"]
+[ext_resource type="Texture2D" uid="uid://clxglhhc6jobs" path="res://assets/sprites/collectibles/Olive.png" id="2_v1bjs"]
+[ext_resource type="Script" path="res://scripts/inventory_item.gd" id="3_c13hk"]
+
+[sub_resource type="Resource" id="Resource_tis5f"]
+resource_local_to_scene = true
+script = ExtResource("1_6ywgk")
+change_hp_by = 0
+change_max_hp_by = -10
+
+[resource]
+script = ExtResource("3_c13hk")
+icon = ExtResource("2_v1bjs")
+name = "Olive"
+description = "Decreases max HP by 10"
+can_use = true
+multiple_uses = false
+can_drop = true
+effect = SubResource("Resource_tis5f")

@@ -1,0 +1,216 @@
+[gd_scene load_steps=6 format=3 uid="uid://dg8n5cu74lfj3"]
+
+[ext_resource type="Script" path="res://scripts/managers/hud_manager.gd" id="1_8ob56"]
+[ext_resource type="PackedScene" uid="uid://cui0ccpbekoy4" path="res://scenes/ui_elements/inventory_ui.tscn" id="2_2m8mk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ruuv"]
+bg_color = Color(0.254902, 0.698039, 0.458824, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bits"]
+bg_color = Color(0.898039, 0.443137, 0.443137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eoobr"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="HudManager" type="Node2D"]
+script = ExtResource("1_8ob56")
+
+[node name="InteractionHud" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Panel" type="Panel" parent="InteractionHud"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -448.0
+offset_top = -88.0
+offset_right = 448.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="InteractionHud/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -440.0
+offset_top = -28.0
+offset_right = 440.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="InteractionTimer" type="Timer" parent="InteractionHud"]
+
+[node name="MainHud" type="CanvasLayer" parent="."]
+
+[node name="PlayerHudPanel" type="Panel" parent="MainHud"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 272.0
+offset_bottom = 144.0
+
+[node name="HPLabel" type="Label" parent="MainHud/PlayerHudPanel"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 232.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 28
+text = "HP: 10/10"
+vertical_alignment = 1
+
+[node name="KeysLabel" type="Label" parent="MainHud/PlayerHudPanel"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 72.0
+offset_right = 232.0
+offset_bottom = 112.0
+theme_override_font_sizes/font_size = 28
+text = "Keys: 0"
+vertical_alignment = 1
+
+[node name="ConfirmationWindow" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ConfirmationPanel" type="Panel" parent="ConfirmationWindow"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -62.0
+offset_right = 150.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ConfirmationLabel" type="Label" parent="ConfirmationWindow/ConfirmationPanel"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 14.0
+offset_right = 278.0
+offset_bottom = 54.0
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ConfirmButton" type="Button" parent="ConfirmationWindow/ConfirmationPanel"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 78.0
+offset_right = 134.0
+offset_bottom = 110.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_4ruuv")
+text = "Confirm"
+
+[node name="CancelButton" type="Button" parent="ConfirmationWindow/ConfirmationPanel"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 78.0
+offset_right = 246.0
+offset_bottom = 110.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_1bits")
+text = "Cancel"
+
+[node name="ConfirmationAlert" type="Panel" parent="ConfirmationWindow"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = -64.0
+offset_right = 152.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ConfirmationAlertLabel" type="Label" parent="ConfirmationWindow/ConfirmationAlert"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 288.0
+offset_bottom = 112.0
+theme_override_font_sizes/font_size = 26
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ConfirmationTimer" type="Timer" parent="ConfirmationWindow"]
+
+[node name="PlayerInventory" type="CanvasLayer" parent="."]
+
+[node name="Inventory" parent="PlayerInventory" instance=ExtResource("2_2m8mk")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverScreen" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Panel" type="Panel" parent="GameOverScreen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_eoobr")
+
+[node name="Label" type="Label" parent="GameOverScreen/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.580392, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.52549, 0.52549, 0.52549, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 180
+text = "Game Over!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="GameOverScreen/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 448.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.580392, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.52549, 0.52549, 0.52549, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 55
+text = "not really*"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="timeout" from="InteractionHud/InteractionTimer" to="." method="_on_interaction_timer_timeout"]
+[connection signal="pressed" from="ConfirmationWindow/ConfirmationPanel/ConfirmButton" to="." method="_on_confirm_button_pressed"]
+[connection signal="pressed" from="ConfirmationWindow/ConfirmationPanel/CancelButton" to="." method="_on_cancel_button_pressed"]
+[connection signal="timeout" from="ConfirmationWindow/ConfirmationTimer" to="." method="_on_confirmation_timer_timeout"]

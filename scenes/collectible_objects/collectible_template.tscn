@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://p0d8fun0tqr1"]
+
+[ext_resource type="PackedScene" uid="uid://bvuq81n2amr7r" path="res://scenes/collectible_objects/collectible_area.tscn" id="1_y3hjf"]
+
+[node name="CollectibleTemplate" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollectibleArea" parent="." instance=ExtResource("1_y3hjf")]

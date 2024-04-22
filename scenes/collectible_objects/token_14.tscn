@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxce2m72ijdc3"]
+
+[ext_resource type="PackedScene" uid="uid://p0d8fun0tqr1" path="res://scenes/collectible_objects/collectible_template.tscn" id="1_oqpxx"]
+[ext_resource type="Texture2D" uid="uid://da280ymj0ugha" path="res://assets/sprites/collectibles/Token.png" id="2_v5edb"]
+[ext_resource type="Script" path="res://scripts/inventory_item.gd" id="3_m1w46"]
+
+[sub_resource type="Resource" id="Resource_3e76t"]
+script = ExtResource("3_m1w46")
+icon = ExtResource("2_v5edb")
+name = "Token14"
+description = "Token of a brave worker"
+can_use = false
+multiple_uses = false
+can_drop = true
+
+[node name="Token14" instance=ExtResource("1_oqpxx")]
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_v5edb")
+
+[node name="CollectibleArea" parent="." index="1"]
+type = 7
+inventory_item_type = SubResource("Resource_3e76t")
